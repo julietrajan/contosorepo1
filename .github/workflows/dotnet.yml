@@ -18,8 +18,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore ./WebApplication4/
+      run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore ./WebApplication4
+      run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal ./WebApplication4
+      run: dotnet test --no-build --verbosity normal
+
