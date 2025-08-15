@@ -1,12 +1,15 @@
-import os
-from openai import AzureOpenAI
 
-endpoint = "https://endpoint.cognitiveservices.azure.com/"
+endpoint = "https://endpoint123.cognitiveservices.azure.com/"
 model_name = "gpt-5"
-deployment = "gpt-5"
 
 subscription_key = ""
-api_version = "2024-12-01-preview"
+api_version = ""
+
+client = AzureOpenAI(
+    api_version=api_version,
+    azure_endpoint=endpoint,
+    api_key=subscription_key,
+)
 
 client = AzureOpenAI(
     api_version=api_version,
@@ -28,5 +31,6 @@ response = client.chat.completions.create(
     max_completion_tokens=16384,
     model=deployment
 )
+
 
 print(response.choices[0].message.content)
