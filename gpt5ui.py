@@ -1,13 +1,9 @@
-import os
-from openai import AzureOpenAI
-import streamlit as st
 
 endpoint = "https://endpoint123.cognitiveservices.azure.com/"
 model_name = "gpt-5"
-deployment = "gpt-5"
 
 subscription_key = ""
-api_version = "2024-12-01-preview"
+api_version = ""
 
 client = AzureOpenAI(
     api_version=api_version,
@@ -34,4 +30,5 @@ if st.button("Get Response"):
         model=deployment
     )
     st.markdown("**Response:**")
+
     st.write(response.choices[0].message.content)
